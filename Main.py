@@ -1,5 +1,16 @@
 from cryptography.fernet import Fernet
 
+def key():
+    try:
+        with open("secret.key", "rb") as key_file:
+            return key_file.read()
+    except FileNotFoundError:
+        key = Fernet.generate_key()
+        with open("secret.key", "wb") as key_file:
+            key_file.write(key)
+        return key
+fernet = Fernet(key())
+
 
 def GetFilePath():
     file_path = input("Input the file path: ")
@@ -10,9 +21,11 @@ def Add():
     application = input("Application: ")
     password = input("Password: ")
 
+    encrypted_password = fernet.encrypt(password.encode()).decode()
+
     try:
         with open(file_path, "a") as file:
-            file.write(f"{application} : {password} \n")
+            file.write(f"{application} : {encrypted_password} \n")
             print(f"{application} password saved. ")
     except Exception as e:
         print("Some error", e)
@@ -53,7 +66,12 @@ def View(): # file is getting saved but this function isn't printing it
             
             print("\n ----- Saved Passwords ------")
             for line in lines:
-                print(line.strip()) # removes the new line char
+                application, enc_pass = line.strip().split(" : ")
+                try:
+                    decrypted_password = fernet.decrypt(enc_pass.encode()).decode()
+                except:
+                    decrypted_password = "Cannot decrypt password"
+                print(f"{application} : {decrypted_password}")
 
     except Exception as e:
         print("Error", e)
