@@ -78,5 +78,16 @@ Copy and paste the pwd output from earlier, then add /passwords.txt at the end
 ` ----- Saved Passwords ------`
   
 `Apple : SuperSecurePass123`
+
+What the passwords.txt file will look like, top three are unencrypted just for the example, the whole file should look like the bottom one.
+
+`Apple : SuperSecurePass123 `
+  
+`Apple : SuperSecurePass123! `
+  
+` Google : NotSecurePass12332 `
+  
+`Steam : gAAAAABpO2DjliUV0_YZB038t5mCqH5GT5lFcg5z4sLZJT3yfdODz2UAoOkcPrG85SaGAcxMF1PXbY2x74ihIuD8OJlit01bpTfHLVkfPYj7NajIGhnHRyo= `
+  
   
 
