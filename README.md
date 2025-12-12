@@ -14,12 +14,19 @@ in the CLI, go to the folder with the python script
 You'll be greeted with this
 
 `******* Password Manager *********`
+  
 `******* Version 1.0 **************`
+  
 `Add password(1)`
+  
 `Delete Password(2)`
+  
 `View Password(3)`
+  
 `Exit(4)`
+  
 `Select an option: `
+  
 
 Lets say you want to add a password -> 
 
